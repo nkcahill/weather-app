@@ -1,0 +1,93 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  color: #e4e3e3;
+  text-align: center;
+  margin-top: 30px;
+}
+h4 {
+  text-align: center;
+  color: #10375c;
+}
+a {
+  color: #10375c;
+}
+.container {
+  height: 500px;
+  width: 800px;
+  margin: 100px auto;
+  border-radius: 10px;
+  background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
+}
+.form-inline {
+  margin-top: 20px;
+}
+.form-control-sm {
+  border-width: thin;
+  border: #e4e3e3;
+}
+.btn-primary {
+  margin-left: 10px;
+  background: #10375c;
+  border: #10375c;
+}
+.btn-primary:hover {
+  background-color: #e4e3e3;
+  color: #10375c;
+}
+.current {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0px;
+  color: #10375c;
+}
+.current-temp {
+  font-size: 55px;
+  margin-left: 60px;
+}
+
+.current-details {
+  list-style: none;
+  font-size: 16px;
+  margin-top: 15px;
+  padding: 0;
+}
+
+.forecast div {
+  text-align: center;
+  margin: auto;
+  color: #10375c;
+  font-size: 20px;
+}
+
+.forecast-days {
+  position: relative;
+  bottom: -50px;
+}
+
+.images {
+  position: relative;
+  bottom: -60px;
+}
+.images i {
+  font-size: 40px;
+}
+.forecast-temp {
+  position: relative;
+  bottom: -70px;
+}
+#current-list {
+  list-style: none;
+}
+#change-temp {
+  font-size: 16px;
+  margin-left: 35px;
+  color: #e4e3e3;
+  position: relative;
+  bottom: 15px;
+}
+#current-description {
+  text-transform: capitalize;
+}
