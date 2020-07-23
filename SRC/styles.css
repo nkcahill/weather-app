@@ -91,3 +91,15 @@ a {
 #current-description {
   text-transform: capitalize;
 }
+#author {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  position: relative;
+  bottom: 95px;
+}
+
+#author a {
+  color: #56b5e9;
+  font-weight: 400;
+}
