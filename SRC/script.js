@@ -1,5 +1,8 @@
-function showCurrentTemp(response) {
+function showForecast(response) {
   console.log(response);
+}
+
+function showCurrentTemp(response) {
   let h1 = document.querySelector("#city-name");
   h1.innerHTML = response.data.name;
   let currentTemp = Math.round(response.data.main.temp);
@@ -14,6 +17,11 @@ function showCurrentTemp(response) {
   let humidityDisplay = document.querySelector("#current-humidity");
   let currentHumidity = response.data.main.humidity;
   humidityDisplay.innerHTML = currentHumidity;
+  let lat = response.data.coord.lat;
+  let long = response.data.coord.lon;
+  let apiKey = `35752ea57c3f31dae01153f9ca0e9ecf`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${h1.innerHTML}&appid=${apiKey}`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 function getCurrentTemp() {
