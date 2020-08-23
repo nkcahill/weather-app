@@ -1,13 +1,18 @@
-function showForecast(response) {
-  console.log(response);
+function showForecastDay(timestamp) {
+  let dt = new Date(timestamp);
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+  let day = days[dt.getDay()];
+  return `${day}`;
+}
 
+function showForecast(response) {
   let forecastElement = document.querySelector("#forecast-element");
   forecastElement.innerHTML = null;
   let forecast = null;
-  for (let index = 0; index < 5; index++) {
+  for (let index = 1; index < 6; index++) {
     forecast = response.data.daily[index];
     forecastElement.innerHTML += `<div class="col-2">
-          <h5>Sun</h5>
+          <h5>${showForecastDay(forecast.dt * 1000)}</h5>
           <img class= "forecast-icon" src="http://openweathermap.org/img/wn/${
             forecast.weather[0].icon
           }@2x.png" alt="" />
@@ -44,7 +49,7 @@ function showCurrentTemp(response) {
   let long = response.data.coord.lon;
   let apiKey = `35752ea57c3f31dae01153f9ca0e9ecf`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&
-exclude={hourly, current}&appid=${apiKey}&units=imperial`;
+exclude={hourly, minutely, current}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showForecast);
 }
 
