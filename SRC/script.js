@@ -1,5 +1,23 @@
 function showForecast(response) {
   console.log(response);
+
+  let forecastElement = document.querySelector("#forecast-element");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+  for (let index = 0; index < 5; index++) {
+    forecast = response.data.daily[index];
+    forecastElement.innerHTML += `<div class="col-2">
+          <h5>Sun</h5>
+          <img class= "forecast-icon" src="http://openweathermap.org/img/wn/${
+            forecast.weather[0].icon
+          }@2x.png" alt="" />
+          <span class="forecast-temp">
+            <strong>${Math.round(
+              forecast.temp.max
+            )}°</strong><small>/${Math.round(forecast.temp.min)}°</small>
+          </span>
+        </div>`;
+  }
 }
 
 function showCurrentTemp(response) {
@@ -17,10 +35,16 @@ function showCurrentTemp(response) {
   let humidityDisplay = document.querySelector("#current-humidity");
   let currentHumidity = response.data.main.humidity;
   humidityDisplay.innerHTML = currentHumidity;
+  let currentIcon = document.querySelector("#current-icon");
+  currentIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
   let lat = response.data.coord.lat;
   let long = response.data.coord.lon;
   let apiKey = `35752ea57c3f31dae01153f9ca0e9ecf`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${h1.innerHTML}&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&
+exclude={hourly, current}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showForecast);
 }
 
@@ -69,6 +93,7 @@ function formatDate(today) {
   let date = today.getDate();
   let year = today.getFullYear();
   let time = new Date();
+
   let hour = time.getHours();
   if (hour < 10) {
     hour = `0${hour}`;

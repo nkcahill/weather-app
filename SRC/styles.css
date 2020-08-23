@@ -44,32 +44,39 @@ a {
   color: #10375c;
 }
 .current-temp {
-  font-size: 55px;
-  margin-left: 60px;
+  font-size: 45px;
+  margin-left: 0px;
 }
 
 .current-details {
   list-style: none;
-  font-size: 16px;
+  font-size: 20px;
   margin-top: 15px;
-  padding: 0;
+  padding-left: 30px;
 }
 
-.forecast div {
+.forecast {
   text-align: center;
-  margin: auto;
+  margin-left: 105px;
+  margin-right: 25px;
   color: #10375c;
   font-size: 20px;
   position: relative;
-  bottom: -50px;
+  top: 35px;
 }
-
+.forecast-icon {
+  height: 65px;
+}
+#current-icon {
+  height: 100px;
+}
 #current-list {
   list-style: none;
+  padding-left: 10px;
 }
 #change-temp {
   font-size: 16px;
-  margin-left: 35px;
+  margin-left: 128px;
   color: #e4e3e3;
   position: relative;
   bottom: 15px;
