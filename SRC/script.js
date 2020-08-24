@@ -120,6 +120,12 @@ function showCelsius(response) {
   let windDisplay = document.querySelector("#current-wind");
   let currentWind = Math.round(response.data.wind.speed);
   windDisplay.innerHTML = `${currentWind}km/h`;
+  let lat = response.data.coord.lat;
+  let long = response.data.coord.lon;
+  let apiKey = `35752ea57c3f31dae01153f9ca0e9ecf`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&
+exclude={hourly, minutely, current}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 function getCelsius() {
@@ -152,6 +158,12 @@ function showCurrentLocation(response) {
   let humidityDisplay = document.querySelector("#current-humidity");
   let currentHumidity = response.data.main.humidity;
   humidityDisplay.innerHTML = currentHumidity;
+  let lat = response.data.coord.lat;
+  let long = response.data.coord.lon;
+  let apiKey = `35752ea57c3f31dae01153f9ca0e9ecf`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&
+exclude={hourly, minutely, current}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 function findCurrentLocation(position) {
